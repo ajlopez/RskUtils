@@ -1,0 +1,8 @@
+{
+	"hosts": [
+		{
+			"host": "localhost",
+			"port": 4444
+		}
+	]
+}
