@@ -23,12 +23,27 @@ function getPeer(data) {
 }
 
 function dumpPeers() {
+	for (var id in peers) {
+		var peer = peers[id];
+		
+		peer.peers.forEach(function (child) {
+			if (peers[child] && peers[child].peers.indexOf(id) < 0)
+				peers[child].peers.push(id);
+		});
+	}
+
 	console.dir(peers);
 	
-	console.dir('count', Object.keys(peers).length);
+	console.log('count', Object.keys(peers).length);
 }
 
 function getPeers(host, port, id) {
+	if (id)
+		if (visited.indexOf(id) < 0)
+			visited.push(id);
+		else
+			return;
+			
 	pending++;
 	console.log('connecting peer', host, port, '...');
 	
@@ -39,36 +54,33 @@ function getPeers(host, port, id) {
 	});
 	
 	client.call('net_peerList', [], function (err, data) {
-		if (id && visited.indexOf(id) < 0)
-			visited.push(id);
 			
 		pending--;
+
+		var newpeer = {
+			host: host,
+			peers: []
+		}						
 
 		if (err) {
 			console.log('error accesing host', host);
 			console.log(err);
+			newpeer.rpc = false;
+		}
+		else {
+			console.log('host', host);
 			
-			if (!pending)
-				dumpPeers();
+			data.forEach(function (datum) {
+				var peer = getPeer(datum);
 				
-			return;
+				newpeer.peers.push(peer.id);
+				
+				if (visited.indexOf(peer.id) < 0)
+					getPeers(peer.host, 4444, peer.id);
+			});
+
+			newpeer.rpc = true;
 		}
-		
-		console.log('host', host);
-		
-		var newpeer = {
-			host: host,
-			peers: []
-		}
-						
-		data.forEach(function (datum) {
-			var peer = getPeer(datum);
-			
-			newpeer.peers.push(peer.id);
-			
-			if (visited.indexOf(peer.id) < 0)
-				getPeers(peer.host, 4444, peer.id);
-		});
 		
 		if (id)
 			peers[id] = newpeer;
