@@ -2,7 +2,7 @@
   "name": "peers",
   "private": true,
   "dependencies": {
-    "simplejsonrpc": "0.0.1",
+    "simplejsonrpc": "0.0.2",
     "simpleargs": "0.0.3"
   }
 }

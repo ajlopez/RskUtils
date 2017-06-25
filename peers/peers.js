@@ -37,7 +37,7 @@ function dumpPeers() {
 	console.log('count', Object.keys(peers).length);
 }
 
-function getPeers(host, port, id) {
+function getPeers(address, id) {
 	if (id)
 		if (visited.indexOf(id) < 0)
 			visited.push(id);
@@ -45,30 +45,27 @@ function getPeers(host, port, id) {
 			return;
 			
 	pending++;
-	console.log('connecting peer', host, port, '...');
 	
-	var client = sjr.client({
-		protocol: 'http',
-		host: host,
-		port: port
-	});
+	console.log('connecting peer', address, '...');
+	
+	var client = sjr.client(address);
 	
 	client.call('net_peerList', [], function (err, data) {
 			
 		pending--;
 
 		var newpeer = {
-			host: host,
+			address: address,
 			peers: []
 		}						
 
 		if (err) {
-			console.log('error accesing host', host);
+			console.log('error accesing host', address);
 			console.log(err);
 			newpeer.rpc = false;
 		}
 		else {
-			console.log('host', host);
+			console.log('host', address);
 			
 			data.forEach(function (datum) {
 				var peer = getPeer(datum);
@@ -76,7 +73,7 @@ function getPeers(host, port, id) {
 				newpeer.peers.push(peer.id);
 				
 				if (visited.indexOf(peer.id) < 0)
-					getPeers(peer.host, 4444, peer.id);
+					getPeers('http://' + peer.host + ':4444', peer.id);
 			});
 
 			newpeer.rpc = true;
@@ -91,5 +88,5 @@ function getPeers(host, port, id) {
 }
 
 config.hosts.forEach(function (host) {
-	getPeers(host.host, host.port);
+	getPeers('http://' + host.host + ':' + host.port);
 });
