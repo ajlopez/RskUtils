@@ -3,10 +3,6 @@
 		{
 			"host": "localhost",
 			"port": 4444
-		},
-		{
-			"host": "localhost",
-			"port": 4445
 		}
 	]
 }

@@ -4,6 +4,16 @@ var sa = require('simpleargs');
 
 var config = require('./config.json');
 
+sa
+    .define('h', 'host', config.host, 'Host JSON RPC entry point')
+
+var options = sa(process.argv.slice(2));
+
+console.log(options);
+
+if (options.host)
+	config.hosts = options.host.split(',');
+
 var peers = {};
 var visited = [];
 var pending = 0;
@@ -87,6 +97,11 @@ function getPeers(address, id) {
 	});
 }
 
+var id = 0;
+
 config.hosts.forEach(function (host) {
-	getPeers('http://' + host.host + ':' + host.port);
+	if (typeof host === 'object')
+		getPeers('http://' + host.host + ':' + host.port, ++id);
+	else
+		getPeers(host, ++id);
 });
