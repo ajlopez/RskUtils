@@ -1,8 +1,5 @@
 {
 	"hosts": [
-		{
-			"host": "localhost",
-			"port": 4444
-		}
+		"http://localhost:4444"
 	]
 }

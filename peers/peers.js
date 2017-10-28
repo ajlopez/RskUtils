@@ -100,8 +100,5 @@ function getPeers(address, id) {
 var id = 0;
 
 config.hosts.forEach(function (host) {
-	if (typeof host === 'object')
-		getPeers('http://' + host.host + ':' + host.port, ++id);
-	else
-		getPeers(host, ++id);
+	getPeers(host, ++id);
 });
