@@ -1,0 +1,16 @@
+{
+  "name": "genconf",
+  "private": true,
+  "version": "1.0.0",
+  "description": "private RSK net config builder",
+  "main": "genconf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ajgenesis": "0.0.14",
+    "simpleargs": "0.0.3"
+  }
+}
