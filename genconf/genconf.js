@@ -8,7 +8,7 @@ var config = require('./config.json');
 
 sargs
     .define('m', 'miners', 1, 'Number of miners')
-	.define('n', 'notminers', 2, 'Number of not miners', { flag: true })
+	.define('n', 'notminers', 2, 'Number of not miners');
 	
 var options = sargs(process.argv.slice(2));
 
@@ -20,9 +20,7 @@ ajgenesis.fs.createDirectory('build');
 for (var nnode = 0; nnode < nnodes; nnode++)
     nodes.push(generateNode(nnode));
 
-console.dir(nodes);
-
-var networkId = Math.floor(Math.random() * 10000000);
+var networkId = 778;
 
 nodes.forEach(function (node) {
     var model = {
