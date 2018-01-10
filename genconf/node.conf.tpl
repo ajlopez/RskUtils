@@ -385,3 +385,6 @@ messages = {
 
 blockchain.flush = true
 blockchain.flushNumberOfBlocks = 100
+
+# target block gas limit (genesis also has 10M)
+targetgaslimit = 10000000
