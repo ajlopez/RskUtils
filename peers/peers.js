@@ -42,7 +42,7 @@ function dumpPeers() {
 		});
 	}
 
-	console.dir(peers);
+	console.log(JSON.stringify(peers, null, 4));
 	
 	console.log('count', Object.keys(peers).length);
 }
@@ -87,6 +87,21 @@ function getPeers(address, id) {
 			});
 
 			newpeer.rpc = true;
+			
+			client.call('web3_clientVersion', [], function (err, data) {
+				if (data)
+					newpeer.version = data;
+			});
+			
+			client.call('eth_syncing', [], function (err, data) {
+				if (!err)
+					newpeer.syncing = data;
+			});
+			
+			client.call('sco_peerList', [], function (err, data) {
+				if (!err)
+					newpeer.scoring = data;
+			});
 		}
 		
 		if (id)
