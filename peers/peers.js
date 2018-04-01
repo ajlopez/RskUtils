@@ -54,6 +54,12 @@ function getPeers(address, id) {
 		else
 			return;
 			
+	if (typeof id === 'number')
+		if (visited.indexOf(address) < 0)
+			visited.push(address);
+		else
+			return;
+			
 	pending++;
 	
 	console.log('connecting peer', address, '...');
@@ -99,21 +105,39 @@ function getPeers(address, id) {
 			});
 			
 			client.call('sco_peerList', [], function (err, data) {
-				if (!err)
-					newpeer.scoring = data;
+				if (err)
+					return;
+				
+				newpeer.scoring = data;
+				
+				for (var k = 0; k < data.length; k++) {
+					var peer = data[k];
+					
+					if (peer.type === 'address' && peer.id)
+						toresolve.push(peer.id);
+				}
 			});
 		}
 		
-		if (id)
+		if (id && (id.length > 5 || id <= config.hosts.length))
 			peers[id] = newpeer;
+		
+		if (!pending && toresolve.length) {
+			var inprocess = toresolve;
+			toresolve = [];
+			
+			for (var k = 0; k < inprocess.length; k++)
+				getPeers('http://' + inprocess[k] + ':4444', ++npeer);
+		}
 		
 		if (!pending)
 			dumpPeers();
 	});
 }
 
-var id = 0;
+var npeer = 0;
+var toresolve = [];
 
 config.hosts.forEach(function (host) {
-	getPeers(host, ++id);
+	getPeers(host, ++npeer);
 });
