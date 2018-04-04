@@ -82,6 +82,7 @@ function getPeers(address, id) {
 		}
 		else {
 			console.log('host', address);
+			newpeer.peerList = data;
 			
 			data.forEach(function (datum) {
 				var peer = getPeer(datum);
