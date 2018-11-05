@@ -13,23 +13,31 @@ function generateRandomHexaByte() {
 }
 
 function generateRandomPrivateKey() {
-    var key = '';
+    do {
+        var keytxt = '';
+        
+        for (var k = 0; k < 32; k++)
+            keytxt += generateRandomHexaByte();
+        
+        var key = new Buffer(keytxt, 'hex');
+    }
+    while (!utils.isValidPrivate(key));
     
-    for (var k = 0; k < 32; k++)
-        key += generateRandomHexaByte();
-    
-    return new Buffer(key, 'hex');
+    return key;
 }
 
 function generateAddress() {
     var privateKey = generateRandomPrivateKey();
-    var publicKey = utils.privateToPublic(privateKey).toString('hex');
-    var address = utils.privateToAddress(privateKey).toString('hex');
+    var publicKey = '0x' + utils.privateToPublic(privateKey).toString('hex');
+    var address = '0x' + utils.privateToAddress(privateKey).toString('hex');
+    
+    if (!utils.isValidAddress(address))
+        throw new Error('invalid address: ' + address);
     
     return {
         privateKey: '0x' + privateKey.toString('hex'),
-        publicKey: '0x' + publicKey,
-        address: '0x' + address
+        publicKey: publicKey,
+        address: address
     }
 }
 
