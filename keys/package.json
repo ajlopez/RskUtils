@@ -1,0 +1,13 @@
+{
+  "name": "keys",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ethereumjs-util": "^6.1.0"
+  }
+}

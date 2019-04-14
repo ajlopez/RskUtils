@@ -1,9 +1,9 @@
 # Generate Ethereum/RSK Addresses
 
-Install npm package:
+Install npm packages:
 
 ```
-npm install ethereumjs-util
+npm install
 ```
 
 Execute
