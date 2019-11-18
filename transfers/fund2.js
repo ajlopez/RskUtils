@@ -11,6 +11,8 @@ const amount = parseInt(process.argv[3]);
 const host = rskapi.host(hosturl);
 
 async function transfer(sender, account) {
+    console.log('trying', sender.address);
+    
     const balance = await host.getBalance(sender.address);
     
     if (balance <= amount)
@@ -18,24 +20,28 @@ async function transfer(sender, account) {
     
     console.log("transfer from", sender.address, "to", account.address);
 
-    const nonce = await host.getTransactionCount(sender.address, "pending");
     const privateKey = new Buffer(sender.privateKey.substring(2), 'hex');
+    let nonce = await host.getTransactionCount(sender.address, "pending");
     
-    const tx = {
-        nonce: nonce,
-        to: account.address,
-        value: amount,
-        gasPrice: 60000000,
-        gas: 21000
-    };
-    
-    const signedtx = new Tx(tx);
-    signedtx.sign(privateKey);
-    
-    const serializedTx = '0x' + signedtx.serialize().toString('hex');
-    
-    const txhash = await host.sendRawTransaction(serializedTx);
-    console.log('transaction hash', txhash);
+    for (let k = 0; k < 5; k++) {
+        const tx = {
+            nonce: nonce,
+            to: account.address,
+            value: amount,
+            gasPrice: 60000000,
+            gas: 21000
+        };
+        
+        const signedtx = new Tx(tx);
+        signedtx.sign(privateKey);
+        
+        const serializedTx = '0x' + signedtx.serialize().toString('hex');
+        
+        const txhash = await host.sendRawTransaction(serializedTx);
+        console.log('transaction hash', txhash);
+        
+        nonce++;
+    }
 }
 
 (async function() {    
