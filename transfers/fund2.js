@@ -2,6 +2,9 @@
 const rskapi = require('rskapi');
 const Tx = require('ethereumjs-tx');
 
+const gasprice = 60000000;
+const gascost = 21000;
+
 const accounts = require('./accounts.json');
 const naccounts = accounts.length;
 
@@ -13,9 +16,10 @@ const host = rskapi.host(hosturl);
 async function transfer(sender, account) {
     console.log('trying', sender.address);
     
-    const balance = await host.getBalance(sender.address);
+    if (sender.balance === undefined)
+        sender.balance = await host.getBalance(sender.address);
     
-    if (balance <= amount)
+    if (sender.balance <= 5 * (amount + gasprice * gascost))
         return;
     
     console.log("transfer from", sender.address, "to", account.address);
@@ -28,8 +32,8 @@ async function transfer(sender, account) {
             nonce: nonce,
             to: account.address,
             value: amount,
-            gasPrice: 60000000,
-            gas: 21000
+            gasPrice: gasprice,
+            gas: gascost
         };
         
         const signedtx = new Tx(tx);
@@ -41,13 +45,14 @@ async function transfer(sender, account) {
         console.log('transaction hash', txhash);
         
         nonce++;
+        sender.balance -= amount + gasprice * gascost;
     }
 }
 
 (async function() {    
     try {
         while (true) {
-            const sender = accounts[Math.floor(Math.random() * naccounts)];
+            const sender = accounts[Math.floor(Math.random() * 40)];
             const account = accounts[Math.floor(Math.random() * naccounts)];
             await transfer(sender, account);
         }
