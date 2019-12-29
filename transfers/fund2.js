@@ -52,7 +52,7 @@ async function transfer(sender, account) {
 (async function() {    
     try {
         while (true) {
-            const sender = accounts[Math.floor(Math.random() * 40)];
+            const sender = accounts[Math.floor(Math.random() * 60)];
             const account = accounts[Math.floor(Math.random() * naccounts)];
             await transfer(sender, account);
         }
