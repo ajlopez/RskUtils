@@ -10,10 +10,11 @@ console.log('lines:', lines.length);
 
 let nblocks = 0;
 let proctime = 0;
+let maxtime = 0;
 
 for (let k = 0, l = lines.length; k < l; k++) {
     const line = lines[k].trim();
-    const p = line.indexOf('processed after');
+    const p = line.indexOf('processed after:');
     
     if (p < 0)
         continue;
@@ -21,6 +22,11 @@ for (let k = 0, l = lines.length; k < l; k++) {
     const p2 = line.indexOf('[', p);
     
     const time = parseInt(line.substring(p2 + 1));
+    
+    if (time > maxtime) {
+        console.log(time, line);
+        maxtime = time;
+    }
     
     proctime += time;
     nblocks++;

@@ -13,7 +13,7 @@ let proctime = [];
 
 for (let k = 0, l = lines.length; k < l; k++) {
     const line = lines[k].trim();
-    const p = line.indexOf('processed after');
+    const p = line.indexOf('processed after:');
     
     if (p < 0)
         continue;
