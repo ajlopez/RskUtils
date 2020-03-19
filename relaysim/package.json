@@ -1,0 +1,7 @@
+{
+  "name": "relaysim",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Block Relay Simulation",
+  "license": "MIT"
+}
