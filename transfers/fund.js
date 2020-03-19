@@ -1,48 +1,39 @@
 
 const rskapi = require('rskapi');
-const Tx = require('ethereumjs-tx');
 
 const accounts = require('./accounts.json');
-const sender = accounts[0];
-const privateKey = new Buffer(sender.privateKey.substring(2), 'hex');
 const naccounts = accounts.length;
 
 const hosturl = process.argv[2];
 const amount = parseInt(process.argv[3]);
+let nsender = process.argv[4];
 
-const host = rskapi.host(hosturl);
+if (nsender)
+    nsender = parseInt(nsender);
+else
+    nsender = 0;
+
+const sender = accounts[nsender];
+
+const client = rskapi.client(hosturl);
+
+let nonce;
 
 async function transfer(account) {
-    console.log("transfer to", account.address);
+    console.log("transfer from", sender.address, "to", account.address);
     
-    const nonce = await host.getTransactionCount(sender.address, "pending");
+    const txh = await client.transfer(sender, account.address, amount, { nonce: nonce++ });
     
-    const tx = {
-        nonce: nonce,
-        to: account.address,
-        value: amount,
-        gasPrice: 60000000,
-        gas: 21000
-    };
-    
-    const signedtx = new Tx(tx);
-    signedtx.sign(privateKey);
-    
-    const serializedTx = '0x' + signedtx.serialize().toString('hex');
-    
-    const txhash = await host.sendRawTransaction(serializedTx);
-    console.log('transaction hash', txhash);
-    
-    while (true) {
-        const txr = await host.getTransactionReceiptByHash(txhash);
-        
-        if (txr)
-            return;
+    if (nonce % 5 == 0) {
+        await client.receipt(txh, 0);
+        nonce = await client.nonce(sender.address);
     }
 }
 
 (async function() {
     try {
+        nonce = await client.nonce(sender.address);
+        
         for (let k = 0; k < naccounts * 2; k++) {
             const account = accounts[Math.floor(Math.random() * (naccounts - 1)) + 1];
             await transfer(account);

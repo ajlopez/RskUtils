@@ -1,20 +1,19 @@
 
 const rskapi = require('rskapi');
-const Tx = require('ethereumjs-tx');
 
 const accounts = require('./accounts.json');
 const naccounts = accounts.length;
 
 const hosturl = process.argv[2];
 
-const host = rskapi.host(hosturl);
+const client = rskapi.client(hosturl);
 
 (async function() {    
     try {
         for (let k = 0; k < naccounts; k++) {
             const account = accounts[k].address;
-            const balance = await host.getBalance(account);
-            console.log(account, balance);
+            const balance = await client.balance(account);
+            console.log(account, parseInt(balance));
         }
     }
     catch (ex) {
