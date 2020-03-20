@@ -1,12 +1,13 @@
 
-const rskapi = require('rskapi');
+const utils = require('./lib/utils');
+const rskapi = utils.rskapi;
+
+const config = utils.loadConfiguration('./config.json');
 
 const accounts = require('./accounts.json');
 const naccounts = accounts.length;
 
-const hosturl = process.argv[2];
-
-const client = rskapi.client(hosturl);
+const client = rskapi.client(config.host);
 
 (async function() {    
     try {
