@@ -1,60 +1,64 @@
 
-const rskapi = require('rskapi');
-const Tx = require('ethereumjs-tx');
+const utils = require('./lib/utils');
+const rskapi = utils.rskapi;
 
-const gasprice = 60000000;
-const gascost = 21000;
+const config = utils.loadConfiguration('./config.json');
 
 const accounts = require('./accounts.json');
 const naccounts = accounts.length;
 
-const hosturl = process.argv[2];
-const amount = parseInt(process.argv[3]);
+const amount = parseInt(process.argv[2]);
 
-const host = rskapi.host(hosturl);
+const client = rskapi.client(config.host);
+
+let gasprice;
 
 async function transfer(sender, account) {
-    console.log('trying', sender.address);
+    const balance = parseInt(await client.balance(sender.address));
     
-    if (sender.balance === undefined)
-        sender.balance = await host.getBalance(sender.address);
+    let ntimes = Math.floor(balance / (amount + gasprice * 21000));
     
-    if (sender.balance <= 5 * (amount + gasprice * gascost))
+    if (ntimes == 0)
         return;
     
-    console.log("transfer from", sender.address, "to", account.address);
+    if (ntimes > 5)
+        ntimes = 5;
 
-    const privateKey = new Buffer(sender.privateKey.substring(2), 'hex');
-    let nonce = await host.getTransactionCount(sender.address, "pending");
+    let nonce = parseInt(await client.nonce(sender.address));
+    const nonce0 = parseInt(await client.host().getTransactionCount(sender.address, "latest"));
+
+    if (nonce >= nonce0 + 5)
+        return;
     
-    for (let k = 0; k < 5; k++) {
-        const tx = {
-            nonce: nonce,
-            to: account.address,
-            value: amount,
-            gasPrice: gasprice,
-            gas: gascost
-        };
-        
-        const signedtx = new Tx(tx);
-        signedtx.sign(privateKey);
-        
-        const serializedTx = '0x' + signedtx.serialize().toString('hex');
-        
-        const txhash = await host.sendRawTransaction(serializedTx);
-        console.log('transaction hash', txhash);
-        
-        nonce++;
-        sender.balance -= amount + gasprice * gascost;
+    ntimes -= nonce - nonce0;
+    
+    if (ntimes == 0)
+        return;
+    
+    console.log('balance', balance);
+
+    for (let k = 0; k < ntimes; k++) {
+        console.log("transfer from", sender.address, "to", account.address);
+        await client.transfer(sender, account.address, amount, { nonce: nonce++ });
     }
 }
 
 (async function() {    
+    gasprice = parseInt(await client.host().getGasPrice());
+    
+    console.log('gas price', gasprice);
+    
     try {
         while (true) {
             const sender = accounts[Math.floor(Math.random() * 60)];
             const account = accounts[Math.floor(Math.random() * naccounts)];
-            await transfer(sender, account);
+            
+            try {
+                await transfer(sender, account);
+            }
+            catch (ex) {
+                console.log(ex);
+            }
         }
     }
     catch (ex) {
