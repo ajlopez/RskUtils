@@ -52,7 +52,7 @@ async function allocate(sender) {
     
     try {
         while (true) {
-            const sender = accounts[Math.floor(Math.random() * 60)];
+            const sender = accounts[Math.floor(Math.random() * 100)];
             
             try {
                 await allocate(sender);
