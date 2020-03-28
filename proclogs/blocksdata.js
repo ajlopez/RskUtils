@@ -10,11 +10,18 @@ const blocks = [];
 let data = [];
 let inblock = false;
 let state;
-
 const START_BLOCK = 1;
 const VERIFICATION = 2;
 const EXECUTION = 3;
 const END_BLOCK = 4;
+
+let lastline;
+let lastlinetime;
+
+const TXS_FIELDS_VALIDATION = 1;
+const FORK_DETECTION_RULE = 2;
+const TX_DONE = 3;
+const SAVE_RECEIPTS = 4;
 
 let timestartverification;
 let timestartexecution;
@@ -27,6 +34,41 @@ for (let k = 0, l = lines.length; k < l; k++) {
     if (!isBlockLine(line))
         continue;
     
+    if (line.indexOf("Validation rule BlockTxsFieldsValidationRule") >= 0) {
+        lastline = TXS_FIELDS_VALIDATION;
+        lastlinetime = toDate(getTime(line));
+    }
+    else if (line.indexOf("Validation rule ForkDetectionDataRule") >= 0) {
+        lastline = FORK_DETECTION_RULE;
+        lastlinetime = toDate(getTime(line));
+    }
+    else if (line.indexOf("Start saveReceipts") >= 0) {
+        lastline = SAVE_RECEIPTS;
+        lastlinetime = toDate(getTime(line));
+    }
+    else if (line.indexOf("tx done") >= 0) {
+        lastline = TX_DONE;
+        lastlinetime = toDate(getTime(line));
+    }
+    else if (lastline === TXS_FIELDS_VALIDATION) {
+        data[6] = toDate(getTime(line)) - lastlinetime;
+        lastline = 0;
+    }
+    else if (lastline === FORK_DETECTION_RULE) {
+        data[7] += toDate(getTime(line)) - lastlinetime;
+        lastline = 0;
+    }
+    else if (lastline === TX_DONE && line.indexOf("execute done") >= 0) {
+        data[8] = toDate(getTime(line)) - lastlinetime;
+        lastline = 0;
+    }
+    else if (lastline === TX_DONE)
+        lastline = 0;
+    else if (lastline === SAVE_RECEIPTS) {
+        data[9] = toDate(getTime(line)) - lastlinetime;
+        lastline = 0;
+    }
+    
     if (line.indexOf("Try connect block hash") >= 0) {
         inblock = true;
         state = START_BLOCK;
@@ -35,7 +77,7 @@ for (let k = 0, l = lines.length; k < l; k++) {
         
         const number = parseInt(line.substring(p + "number: ".length));
         
-        data = [ number, 0, 0 ];
+        data = [ number, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
         
         continue;
     }
