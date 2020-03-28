@@ -28,11 +28,26 @@ let timestartexecution;
 let timeendexecution;
 let timestartclose;
 
+const BLOCK_NUMBER = 0;
+const NO_TXS = 1;
+const NO_UNCLES = 2;
+const PROCESSED_TIME = 3;
+const VALIDATION_TIME = 4;
+const EXECUTION_TIME = 5;
+const SAVE_TIME = 6;
+const TXS_VALIDATION_TIME = 7;
+const FORK_VALIDATION_TIME = 8;
+const TRIE_TIME = 9;
+const RECEIPTS_TIME = 10;
+
 for (let k = 0, l = lines.length; k < l; k++) {
     const line = lines[k].trim();
     
     if (!isBlockLine(line))
         continue;
+    
+    if (line.indexOf("Validating header") >= 0)
+        data[NO_UNCLES]++;
     
     if (line.indexOf("Validation rule BlockTxsFieldsValidationRule") >= 0) {
         lastline = TXS_FIELDS_VALIDATION;
@@ -51,21 +66,21 @@ for (let k = 0, l = lines.length; k < l; k++) {
         lastlinetime = toDate(getTime(line));
     }
     else if (lastline === TXS_FIELDS_VALIDATION) {
-        data[6] = toDate(getTime(line)) - lastlinetime;
+        data[TXS_VALIDATION_TIME] = toDate(getTime(line)) - lastlinetime;
         lastline = 0;
     }
     else if (lastline === FORK_DETECTION_RULE) {
-        data[7] += toDate(getTime(line)) - lastlinetime;
+        data[FORK_VALIDATION_TIME] += toDate(getTime(line)) - lastlinetime;
         lastline = 0;
     }
     else if (lastline === TX_DONE && line.indexOf("execute done") >= 0) {
-        data[8] = toDate(getTime(line)) - lastlinetime;
+        data[TRIE_TIME] = toDate(getTime(line)) - lastlinetime;
         lastline = 0;
     }
     else if (lastline === TX_DONE)
         lastline = 0;
     else if (lastline === SAVE_RECEIPTS) {
-        data[9] = toDate(getTime(line)) - lastlinetime;
+        data[RECEIPTS_TIME] = toDate(getTime(line)) - lastlinetime;
         lastline = 0;
     }
     
@@ -77,7 +92,7 @@ for (let k = 0, l = lines.length; k < l; k++) {
         
         const number = parseInt(line.substring(p + "number: ".length));
         
-        data = [ number, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+        data = [ number, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
         
         continue;
     }
@@ -94,7 +109,7 @@ for (let k = 0, l = lines.length; k < l; k++) {
     if (state === VERIFICATION && line.indexOf("[blockvalidator") < 0) {
         state = EXECUTION;
         timestartexecution = toDate(getTime(line));
-        data[3] = timestartexecution - timestartverification;
+        data[VALIDATION_TIME] = timestartexecution - timestartverification;
         continue;
     }
     
@@ -107,7 +122,7 @@ for (let k = 0, l = lines.length; k < l; k++) {
     if (state === EXECUTION && line.indexOf("execute done") >= 0) {
         state = END_BLOCK;
         timestartclose = timeendexecution;
-        data[4] = timeendexecution - timestartexecution;
+        data[EXECUTION_TIME] = timeendexecution - timestartexecution;
         
         continue;
     }
@@ -116,8 +131,8 @@ for (let k = 0, l = lines.length; k < l; k++) {
         const p = line.indexOf("processed after: [");
         const time = parseInt(line.substring(p + "processed after: [".length));
                
-        data[2] = time;
-        data[5] = toDate(getTime(line)) - timestartclose;
+        data[PROCESSED_TIME] = time;
+        data[SAVE_TIME] = toDate(getTime(line)) - timestartclose;
         
         blocks.push(data);
         
@@ -131,7 +146,7 @@ for (let k = 0, l = lines.length; k < l; k++) {
         
         const ntxs = parseInt(line.substring(p + "tx.list: [".length));
         
-        data[1] = ntxs;
+        data[NO_TXS] = ntxs;
         
         continue;
     }
