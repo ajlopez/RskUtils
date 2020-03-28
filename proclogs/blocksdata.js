@@ -131,7 +131,7 @@ for (let k = 0, l = lines.length; k < l; k++) {
         const p = line.indexOf("processed after: [");
         const time = parseInt(line.substring(p + "processed after: [".length));
                
-        data[PROCESSED_TIME] = time;
+        data[PROCESSED_TIME] = Math.floor((time + 500000) / 1000000);
         data[SAVE_TIME] = toDate(getTime(line)) - timestartclose;
         
         blocks.push(data);
@@ -152,7 +152,19 @@ for (let k = 0, l = lines.length; k < l; k++) {
     }
 }
 
-console.log(JSON.stringify(blocks, null, 4));
+for (let k = 0, l = blocks.length; k < l; k++) {
+    let result = '';
+    const block = blocks[k];
+    
+    for (let j = 0; j < block.length; j++) {
+        if (j)
+            result += ',';
+        
+        result += block[j];
+    }
+    
+    console.log(result);
+}
 
 function isBlockLine(line) {
     return line.indexOf('[blockchain') >= 0 ||
