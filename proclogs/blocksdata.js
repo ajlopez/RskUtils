@@ -2,6 +2,7 @@
 const fs = require('fs');
 
 const filename = process.argv[2];
+const nmintxs = process.argv[3] ? parseInt(process.argv[3]) : 0;
 
 const text = fs.readFileSync(filename).toString();
 const lines = text.split('\n');
@@ -153,9 +154,13 @@ for (let k = 0, l = lines.length; k < l; k++) {
 }
 
 for (let k = 0, l = blocks.length; k < l; k++) {
-    let result = '';
     const block = blocks[k];
     
+    if (block[NO_TXS] < nmintxs)
+        continue;
+    
+    let result = '';
+
     for (let j = 0; j < block.length; j++) {
         if (j)
             result += ',';
