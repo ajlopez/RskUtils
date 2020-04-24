@@ -33,14 +33,16 @@ for (let k = 0; k < nlines; k++) {
             counts[j] = (counts[j] || 0) + parts[0][j].length;
 }
 
-console.log(nblocks);
-console.log(counts);
-
 let tsize = 0;
 
 for (let k = 0; k < counts.length; k++)
     tsize += counts[k];
 
-console.log(tsize);
+console.log("no blocks", nblocks);
+console.log("block headers size", tsize);
+
+console.log(counts);
+
+
 
 

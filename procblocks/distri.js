@@ -13,10 +13,16 @@ const lines = text.split('\n');
 const nlines = lines.length;
 
 let tsize = 0;
+let nblocks = 0;
 
 for (let k = 0; k < nlines; k++) {
     const line = lines[k].trim();
     
+    if (!line.length)
+        continue;
+    
+    nblocks++;
+
     const parts = line.split(',');
     
     const block = parts[parts.length - 1];
@@ -27,7 +33,10 @@ for (let k = 0; k < nlines; k++) {
         count[block[j]]++;
 }
 
-console.dir(lines.length);
-console.dir(tsize);
+console.log("no blocks", nblocks);
+console.log("total size (bytes)", tsize / 2);
+console.log("block average size (bytes)", tsize / 2 / nblocks);
+
+console.log("hexadecimal digits counts");
 console.dir(count);
 
