@@ -24,6 +24,27 @@
     },
     {
       "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "map",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
       "inputs": [],
       "name": "recursive",
       "outputs": [
@@ -53,21 +74,21 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"counter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"level\",\"type\":\"uint256\"}],\"name\":\"increment\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"recursive\",\"outputs\":[{\"internalType\":\"contract RecursiveChild\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/git/RskUtils/transfers/contracts/RecursiveParent.sol\":\"RecursiveParent\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/git/RskUtils/transfers/contracts/RecursiveChild.sol\":{\"keccak256\":\"0x87793b36112b595bfe18a3a0f304de02323222053d5d94529191bdf1890ab1be\",\"urls\":[\"bzz-raw://a962dabafe9c95936a27979590ba9af93010ee3cd745b00128a3552caa05ff47\",\"dweb:/ipfs/QmfLYJ8Rf3eA18fCVMDLMqda5UFW5VPXxZCY5pD3gVnXwi\"]},\"/C/git/RskUtils/transfers/contracts/RecursiveInterface.sol\":{\"keccak256\":\"0x7100cb4e6377df3b25cf5398da4866dead26e70da4d10d1456a5ae97ba1736d0\",\"urls\":[\"bzz-raw://8e182b6d2dead2bd5cc97e877c84d128ce5c583c653875e0f65f95494e315201\",\"dweb:/ipfs/QmavoTnmEFCbGT95Wcy7T9g2S9yLntfwC2WJcUVKk2Sdqz\"]},\"/C/git/RskUtils/transfers/contracts/RecursiveParent.sol\":{\"keccak256\":\"0x985f699305afa3b029d81a2f8be91d02f2bdbc5b929f8439c0f41b8b70026788\",\"urls\":[\"bzz-raw://ee2d90cb5fb25250a0dfe54b62b9c9139b4727844d8baed6efa53f66ac12e3fd\",\"dweb:/ipfs/QmSSdh4bNVq5Uj6T2RbwjoNax7LrwsAi3oHAGsEKpKQZAy\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b503060405161001e906100b6565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f080158015610070573d6000803e3d6000fd5b50600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506100c3565b610285806102c283390190565b6101f0806100d26000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806361bc221a146100465780637cf5dab01461006457806399c93b7b14610092575b600080fd5b61004e6100dc565b6040518082815260200191505060405180910390f35b6100906004803603602081101561007a57600080fd5b81019080803590602001909291905050506100e2565b005b61009a610195565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60005481565b60008114156100f057610192565b6000808154809291906001019190505550600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16637cf5dab0600183036040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b15801561017957600080fd5b505af115801561018d573d6000803e3d6000fd5b505050505b50565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820275a93b6e3c47012f30d5a02a3120438cfd9ce4c2491eea8b46a06f07ded3ebe64736f6c63430005100032608060405234801561001057600080fd5b506040516102853803806102858339818101604052602081101561003357600080fd5b810190808051906020019092919050505080600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506101f0806100956000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806361bc221a146100465780637cf5dab01461006457806399c93b7b14610092575b600080fd5b61004e6100dc565b6040518082815260200191505060405180910390f35b6100906004803603602081101561007a57600080fd5b81019080803590602001909291905050506100e2565b005b61009a610195565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60005481565b60008114156100f057610192565b6000808154809291906001019190505550600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16637cf5dab0600183036040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b15801561017957600080fd5b505af115801561018d573d6000803e3d6000fd5b505050505b50565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820cc3deb2011e2eb210f87e3e7dcfbdb4c26fe1d909b562d8c58d8e643ce6e3a5964736f6c63430005100032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c806361bc221a146100465780637cf5dab01461006457806399c93b7b14610092575b600080fd5b61004e6100dc565b6040518082815260200191505060405180910390f35b6100906004803603602081101561007a57600080fd5b81019080803590602001909291905050506100e2565b005b61009a610195565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60005481565b60008114156100f057610192565b6000808154809291906001019190505550600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16637cf5dab0600183036040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b15801561017957600080fd5b505af115801561018d573d6000803e3d6000fd5b505050505b50565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820275a93b6e3c47012f30d5a02a3120438cfd9ce4c2491eea8b46a06f07ded3ebe64736f6c63430005100032",
-  "sourceMap": "105:392:7:-;;;229:76;8:9:-1;5:2;;;30:1;27;20:12;5:2;229:76:7;292:4;273:24;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;273:24:7;261:9;;:36;;;;;;;;;;;;;;;;;;105:392;;;;;;;;;;:::o;:::-;;;;;;;",
-  "deployedSourceMap": "105:392:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;105:392:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;159:19;;;:::i;:::-;;;;;;;;;;;;;;;;;;;317:177;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;317:177:7;;;;;;;;;;;;;;;;;:::i;:::-;;185:31;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;159:19;;;;:::o;317:177::-;379:1;370:5;:10;366:36;;;395:7;;366:36;426:7;;:9;;;;;;;;;;;;;456;;;;;;;;;;;:19;;;484:1;476:5;:9;456:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;456:30:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;456:30:7;;;;317:177;;:::o;185:31::-;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity >=0.5.0 <0.6.0;\r\n\r\nimport \"./RecursiveInterface.sol\";\r\nimport \"./RecursiveChild.sol\";\r\n\r\ncontract RecursiveParent is RecursiveInterface {\r\n    uint public counter;\r\n    RecursiveChild public recursive;\r\n    \r\n    constructor() public {\r\n        recursive = new RecursiveChild(this);\r\n    }\r\n    \r\n    function increment(uint level) public {\r\n        if (level == 0)\r\n            return;\r\n            \r\n        counter++;\r\n        \r\n        recursive.increment(level - 1);\r\n    }\r\n}\r\n\r\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"counter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"level\",\"type\":\"uint256\"}],\"name\":\"increment\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"map\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"recursive\",\"outputs\":[{\"internalType\":\"contract RecursiveChild\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/git/RskUtils/transfers/contracts/RecursiveParent.sol\":\"RecursiveParent\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/git/RskUtils/transfers/contracts/RecursiveChild.sol\":{\"keccak256\":\"0x87793b36112b595bfe18a3a0f304de02323222053d5d94529191bdf1890ab1be\",\"urls\":[\"bzz-raw://a962dabafe9c95936a27979590ba9af93010ee3cd745b00128a3552caa05ff47\",\"dweb:/ipfs/QmfLYJ8Rf3eA18fCVMDLMqda5UFW5VPXxZCY5pD3gVnXwi\"]},\"/C/git/RskUtils/transfers/contracts/RecursiveInterface.sol\":{\"keccak256\":\"0x7100cb4e6377df3b25cf5398da4866dead26e70da4d10d1456a5ae97ba1736d0\",\"urls\":[\"bzz-raw://8e182b6d2dead2bd5cc97e877c84d128ce5c583c653875e0f65f95494e315201\",\"dweb:/ipfs/QmavoTnmEFCbGT95Wcy7T9g2S9yLntfwC2WJcUVKk2Sdqz\"]},\"/C/git/RskUtils/transfers/contracts/RecursiveParent.sol\":{\"keccak256\":\"0x0231f761085b01b693709bf57d0ac5f3c70b39b02ef9990fb8c801167c46eeb7\",\"urls\":[\"bzz-raw://36f35601a4bc001c1ae76b2b8c2312b34346a9d7cc64e012fc044a222597883b\",\"dweb:/ipfs/QmdKWYqitgZ8CLSX6cNjKeB1NyFRgHjfjYLXTCRg69T3og\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b503060405161001e906100b6565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050604051809103906000f080158015610070573d6000803e3d6000fd5b50600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506100c3565b6102858061036083390190565b61028e806100d26000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806361bc221a146100515780637cf5dab01461006f57806399c93b7b1461009d578063b8dda9c7146100e7575b600080fd5b61005961012d565b6040518082815260200191505060405180910390f35b61009b6004803603602081101561008557600080fd5b8101908080359060200190929190505050610133565b005b6100a5610213565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610113600480360360208110156100fd57600080fd5b8101908080359060200190929190505050610239565b604051808215151515815260200191505060405180910390f35b60005481565b600081141561014157610210565b60008081548092919060010191905055506001600260008054815260200190815260200160002060006101000a81548160ff021916908315150217905550600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16637cf5dab0600183036040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b1580156101f757600080fd5b505af115801561020b573d6000803e3d6000fd5b505050505b50565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60026020528060005260406000206000915054906101000a900460ff168156fea265627a7a72315820bef3cf9f8327335b78b179246e5ec1ba1c77856f7d5c12db0981ac8dcfb7f9b464736f6c63430005100032608060405234801561001057600080fd5b506040516102853803806102858339818101604052602081101561003357600080fd5b810190808051906020019092919050505080600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506101f0806100956000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806361bc221a146100465780637cf5dab01461006457806399c93b7b14610092575b600080fd5b61004e6100dc565b6040518082815260200191505060405180910390f35b6100906004803603602081101561007a57600080fd5b81019080803590602001909291905050506100e2565b005b61009a610195565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60005481565b60008114156100f057610192565b6000808154809291906001019190505550600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16637cf5dab0600183036040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b15801561017957600080fd5b505af115801561018d573d6000803e3d6000fd5b505050505b50565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820cc3deb2011e2eb210f87e3e7dcfbdb4c26fe1d909b562d8c58d8e643ce6e3a5964736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806361bc221a146100515780637cf5dab01461006f57806399c93b7b1461009d578063b8dda9c7146100e7575b600080fd5b61005961012d565b6040518082815260200191505060405180910390f35b61009b6004803603602081101561008557600080fd5b8101908080359060200190929190505050610133565b005b6100a5610213565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610113600480360360208110156100fd57600080fd5b8101908080359060200190929190505050610239565b604051808215151515815260200191505060405180910390f35b60005481565b600081141561014157610210565b60008081548092919060010191905055506001600260008054815260200190815260200160002060006101000a81548160ff021916908315150217905550600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16637cf5dab0600183036040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b1580156101f757600080fd5b505af115801561020b573d6000803e3d6000fd5b505050505b50565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60026020528060005260406000206000915054906101000a900460ff168156fea265627a7a72315820bef3cf9f8327335b78b179246e5ec1ba1c77856f7d5c12db0981ac8dcfb7f9b464736f6c63430005100032",
+  "sourceMap": "105:471:7:-;;;268:76;8:9:-1;5:2;;;30:1;27;20:12;5:2;268:76:7;331:4;312:24;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;312:24:7;300:9;;:36;;;;;;;;;;;;;;;;;;105:471;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "105:471:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;105:471:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;159:19;;;:::i;:::-;;;;;;;;;;;;;;;;;;;356:217;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;356:217:7;;;;;;;;;;;;;;;;;:::i;:::-;;185:31;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;223:32;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;223:32:7;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;159:19;;;;:::o;356:217::-;418:1;409:5;:10;405:36;;;434:7;;405:36;465:7;;:9;;;;;;;;;;;;;510:4;495:3;:12;499:7;;495:12;;;;;;;;;;;;:19;;;;;;;;;;;;;;;;;;535:9;;;;;;;;;;;:19;;;563:1;555:5;:9;535:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;535:30:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;535:30:7;;;;356:217;;:::o;185:31::-;;;;;;;;;;;;;:::o;223:32::-;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity >=0.5.0 <0.6.0;\r\n\r\nimport \"./RecursiveInterface.sol\";\r\nimport \"./RecursiveChild.sol\";\r\n\r\ncontract RecursiveParent is RecursiveInterface {\r\n    uint public counter;\r\n    RecursiveChild public recursive;\r\n    mapping(uint => bool) public map;\r\n    \r\n    constructor() public {\r\n        recursive = new RecursiveChild(this);\r\n    }\r\n    \r\n    function increment(uint level) public {\r\n        if (level == 0)\r\n            return;\r\n            \r\n        counter++;\r\n        \r\n        map[counter] = true;\r\n        \r\n        recursive.increment(level - 1);\r\n    }\r\n}\r\n\r\n",
   "sourcePath": "C:\\git\\RskUtils\\transfers\\contracts\\RecursiveParent.sol",
   "ast": {
     "absolutePath": "/C/git/RskUtils/transfers/contracts/RecursiveParent.sol",
     "exportedSymbols": {
       "RecursiveParent": [
-        370
+        380
       ]
     },
-    "id": 371,
+    "id": 381,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -89,7 +110,7 @@
         "file": "./RecursiveInterface.sol",
         "id": 329,
         "nodeType": "ImportDirective",
-        "scope": 371,
+        "scope": 381,
         "sourceUnit": 327,
         "src": "35:34:7",
         "symbolAliases": [],
@@ -100,7 +121,7 @@
         "file": "./RecursiveChild.sol",
         "id": 330,
         "nodeType": "ImportDirective",
-        "scope": 371,
+        "scope": 381,
         "sourceUnit": 319,
         "src": "71:30:7",
         "symbolAliases": [],
@@ -134,9 +155,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 370,
+        "id": 380,
         "linearizedBaseContracts": [
-          370,
+          380,
           326
         ],
         "name": "RecursiveParent",
@@ -147,7 +168,7 @@
             "id": 334,
             "name": "counter",
             "nodeType": "VariableDeclaration",
-            "scope": 370,
+            "scope": 380,
             "src": "159:19:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -173,7 +194,7 @@
             "id": 336,
             "name": "recursive",
             "nodeType": "VariableDeclaration",
-            "scope": 370,
+            "scope": 380,
             "src": "185:31:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -197,27 +218,72 @@
             "visibility": "public"
           },
           {
+            "constant": false,
+            "id": 340,
+            "name": "map",
+            "nodeType": "VariableDeclaration",
+            "scope": 380,
+            "src": "223:32:7",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+              "typeString": "mapping(uint256 => bool)"
+            },
+            "typeName": {
+              "id": 339,
+              "keyType": {
+                "id": 337,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "231:4:7",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "223:21:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+                "typeString": "mapping(uint256 => bool)"
+              },
+              "valueType": {
+                "id": 338,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "239:4:7",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 346,
+              "id": 350,
               "nodeType": "Block",
-              "src": "250:55:7",
+              "src": "289:55:7",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 344,
+                    "id": 348,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 339,
+                      "id": 343,
                       "name": "recursive",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 336,
-                      "src": "261:9:7",
+                      "src": "300:9:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_RecursiveChild_$318",
                         "typeString": "contract RecursiveChild"
@@ -230,14 +296,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 342,
+                          "id": 346,
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 758,
-                          "src": "292:4:7",
+                          "referencedDeclaration": 768,
+                          "src": "331:4:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_RecursiveParent_$370",
+                            "typeIdentifier": "t_contract$_RecursiveParent_$380",
                             "typeString": "contract RecursiveParent"
                           }
                         }
@@ -245,35 +311,35 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_RecursiveParent_$370",
+                            "typeIdentifier": "t_contract$_RecursiveParent_$380",
                             "typeString": "contract RecursiveParent"
                           }
                         ],
-                        "id": 341,
+                        "id": 345,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "NewExpression",
-                        "src": "273:18:7",
+                        "src": "312:18:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_RecursiveInterface_$326_$returns$_t_contract$_RecursiveChild_$318_$",
                           "typeString": "function (contract RecursiveInterface) returns (contract RecursiveChild)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 340,
+                          "id": 344,
                           "name": "RecursiveChild",
                           "nodeType": "UserDefinedTypeName",
                           "referencedDeclaration": 318,
-                          "src": "277:14:7",
+                          "src": "316:14:7",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_RecursiveChild_$318",
                             "typeString": "contract RecursiveChild"
                           }
                         }
                       },
-                      "id": 343,
+                      "id": 347,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -281,54 +347,54 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "273:24:7",
+                      "src": "312:24:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_RecursiveChild_$318",
                         "typeString": "contract RecursiveChild"
                       }
                     },
-                    "src": "261:36:7",
+                    "src": "300:36:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_RecursiveChild_$318",
                       "typeString": "contract RecursiveChild"
                     }
                   },
-                  "id": 345,
+                  "id": 349,
                   "nodeType": "ExpressionStatement",
-                  "src": "261:36:7"
+                  "src": "300:36:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 347,
+            "id": 351,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 337,
+              "id": 341,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "240:2:7"
+              "src": "279:2:7"
             },
             "returnParameters": {
-              "id": 338,
+              "id": 342,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "250:0:7"
+              "src": "289:0:7"
             },
-            "scope": 370,
-            "src": "229:76:7",
+            "scope": 380,
+            "src": "268:76:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 368,
+              "id": 378,
               "nodeType": "Block",
-              "src": "355:139:7",
+              "src": "394:179:7",
               "statements": [
                 {
                   "condition": {
@@ -337,19 +403,19 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 354,
+                    "id": 358,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 352,
+                      "id": 356,
                       "name": "level",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 349,
-                      "src": "370:5:7",
+                      "referencedDeclaration": 353,
+                      "src": "409:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -360,14 +426,14 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 353,
+                      "id": 357,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "379:1:7",
+                      "src": "418:1:7",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -375,28 +441,28 @@
                       },
                       "value": "0"
                     },
-                    "src": "370:10:7",
+                    "src": "409:10:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
                   "falseBody": null,
-                  "id": 356,
+                  "id": 360,
                   "nodeType": "IfStatement",
-                  "src": "366:36:7",
+                  "src": "405:36:7",
                   "trueBody": {
                     "expression": null,
-                    "functionReturnParameters": 351,
-                    "id": 355,
+                    "functionReturnParameters": 355,
+                    "id": 359,
                     "nodeType": "Return",
-                    "src": "395:7:7"
+                    "src": "434:7:7"
                   }
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 358,
+                    "id": 362,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -404,15 +470,15 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": false,
-                    "src": "426:9:7",
+                    "src": "465:9:7",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 357,
+                      "id": 361,
                       "name": "counter",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 334,
-                      "src": "426:7:7",
+                      "src": "465:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -423,9 +489,87 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 359,
+                  "id": 363,
                   "nodeType": "ExpressionStatement",
-                  "src": "426:9:7"
+                  "src": "465:9:7"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 368,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 364,
+                        "name": "map",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 340,
+                        "src": "495:3:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+                          "typeString": "mapping(uint256 => bool)"
+                        }
+                      },
+                      "id": 366,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 365,
+                        "name": "counter",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 334,
+                        "src": "499:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "495:12:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 367,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "510:4:7",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "495:19:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 369,
+                  "nodeType": "ExpressionStatement",
+                  "src": "495:19:7"
                 },
                 {
                   "expression": {
@@ -437,19 +581,19 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 365,
+                        "id": 375,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 363,
+                          "id": 373,
                           "name": "level",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 349,
-                          "src": "476:5:7",
+                          "referencedDeclaration": 353,
+                          "src": "555:5:7",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -460,14 +604,14 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 364,
+                          "id": 374,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "484:1:7",
+                          "src": "563:1:7",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_1_by_1",
@@ -475,7 +619,7 @@
                           },
                           "value": "1"
                         },
-                        "src": "476:9:7",
+                        "src": "555:9:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -491,18 +635,18 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 360,
+                        "id": 370,
                         "name": "recursive",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 336,
-                        "src": "456:9:7",
+                        "src": "535:9:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_RecursiveChild_$318",
                           "typeString": "contract RecursiveChild"
                         }
                       },
-                      "id": 362,
+                      "id": 372,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -510,13 +654,13 @@
                       "memberName": "increment",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 317,
-                      "src": "456:19:7",
+                      "src": "535:19:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256) external"
                       }
                     },
-                    "id": 366,
+                    "id": 376,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -524,36 +668,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "456:30:7",
+                    "src": "535:30:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 367,
+                  "id": 377,
                   "nodeType": "ExpressionStatement",
-                  "src": "456:30:7"
+                  "src": "535:30:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 369,
+            "id": 379,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "increment",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 350,
+              "id": 354,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 349,
+                  "id": 353,
                   "name": "level",
                   "nodeType": "VariableDeclaration",
-                  "scope": 369,
-                  "src": "336:10:7",
+                  "scope": 379,
+                  "src": "375:10:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -561,10 +705,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 348,
+                    "id": 352,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "336:4:7",
+                    "src": "375:4:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -574,35 +718,35 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "335:12:7"
+              "src": "374:12:7"
             },
             "returnParameters": {
-              "id": 351,
+              "id": 355,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "355:0:7"
+              "src": "394:0:7"
             },
-            "scope": 370,
-            "src": "317:177:7",
+            "scope": 380,
+            "src": "356:217:7",
             "stateMutability": "nonpayable",
             "superFunction": 325,
             "visibility": "public"
           }
         ],
-        "scope": 371,
-        "src": "105:392:7"
+        "scope": 381,
+        "src": "105:471:7"
       }
     ],
-    "src": "0:501:7"
+    "src": "0:580:7"
   },
   "legacyAST": {
     "absolutePath": "/C/git/RskUtils/transfers/contracts/RecursiveParent.sol",
     "exportedSymbols": {
       "RecursiveParent": [
-        370
+        380
       ]
     },
-    "id": 371,
+    "id": 381,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -624,7 +768,7 @@
         "file": "./RecursiveInterface.sol",
         "id": 329,
         "nodeType": "ImportDirective",
-        "scope": 371,
+        "scope": 381,
         "sourceUnit": 327,
         "src": "35:34:7",
         "symbolAliases": [],
@@ -635,7 +779,7 @@
         "file": "./RecursiveChild.sol",
         "id": 330,
         "nodeType": "ImportDirective",
-        "scope": 371,
+        "scope": 381,
         "sourceUnit": 319,
         "src": "71:30:7",
         "symbolAliases": [],
@@ -669,9 +813,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 370,
+        "id": 380,
         "linearizedBaseContracts": [
-          370,
+          380,
           326
         ],
         "name": "RecursiveParent",
@@ -682,7 +826,7 @@
             "id": 334,
             "name": "counter",
             "nodeType": "VariableDeclaration",
-            "scope": 370,
+            "scope": 380,
             "src": "159:19:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -708,7 +852,7 @@
             "id": 336,
             "name": "recursive",
             "nodeType": "VariableDeclaration",
-            "scope": 370,
+            "scope": 380,
             "src": "185:31:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -732,27 +876,72 @@
             "visibility": "public"
           },
           {
+            "constant": false,
+            "id": 340,
+            "name": "map",
+            "nodeType": "VariableDeclaration",
+            "scope": 380,
+            "src": "223:32:7",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+              "typeString": "mapping(uint256 => bool)"
+            },
+            "typeName": {
+              "id": 339,
+              "keyType": {
+                "id": 337,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "231:4:7",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "223:21:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+                "typeString": "mapping(uint256 => bool)"
+              },
+              "valueType": {
+                "id": 338,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "239:4:7",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 346,
+              "id": 350,
               "nodeType": "Block",
-              "src": "250:55:7",
+              "src": "289:55:7",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 344,
+                    "id": 348,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 339,
+                      "id": 343,
                       "name": "recursive",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 336,
-                      "src": "261:9:7",
+                      "src": "300:9:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_RecursiveChild_$318",
                         "typeString": "contract RecursiveChild"
@@ -765,14 +954,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 342,
+                          "id": 346,
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 758,
-                          "src": "292:4:7",
+                          "referencedDeclaration": 768,
+                          "src": "331:4:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_RecursiveParent_$370",
+                            "typeIdentifier": "t_contract$_RecursiveParent_$380",
                             "typeString": "contract RecursiveParent"
                           }
                         }
@@ -780,35 +969,35 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_RecursiveParent_$370",
+                            "typeIdentifier": "t_contract$_RecursiveParent_$380",
                             "typeString": "contract RecursiveParent"
                           }
                         ],
-                        "id": 341,
+                        "id": 345,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "NewExpression",
-                        "src": "273:18:7",
+                        "src": "312:18:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_RecursiveInterface_$326_$returns$_t_contract$_RecursiveChild_$318_$",
                           "typeString": "function (contract RecursiveInterface) returns (contract RecursiveChild)"
                         },
                         "typeName": {
                           "contractScope": null,
-                          "id": 340,
+                          "id": 344,
                           "name": "RecursiveChild",
                           "nodeType": "UserDefinedTypeName",
                           "referencedDeclaration": 318,
-                          "src": "277:14:7",
+                          "src": "316:14:7",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_RecursiveChild_$318",
                             "typeString": "contract RecursiveChild"
                           }
                         }
                       },
-                      "id": 343,
+                      "id": 347,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -816,54 +1005,54 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "273:24:7",
+                      "src": "312:24:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_RecursiveChild_$318",
                         "typeString": "contract RecursiveChild"
                       }
                     },
-                    "src": "261:36:7",
+                    "src": "300:36:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_RecursiveChild_$318",
                       "typeString": "contract RecursiveChild"
                     }
                   },
-                  "id": 345,
+                  "id": 349,
                   "nodeType": "ExpressionStatement",
-                  "src": "261:36:7"
+                  "src": "300:36:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 347,
+            "id": 351,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 337,
+              "id": 341,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "240:2:7"
+              "src": "279:2:7"
             },
             "returnParameters": {
-              "id": 338,
+              "id": 342,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "250:0:7"
+              "src": "289:0:7"
             },
-            "scope": 370,
-            "src": "229:76:7",
+            "scope": 380,
+            "src": "268:76:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 368,
+              "id": 378,
               "nodeType": "Block",
-              "src": "355:139:7",
+              "src": "394:179:7",
               "statements": [
                 {
                   "condition": {
@@ -872,19 +1061,19 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 354,
+                    "id": 358,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 352,
+                      "id": 356,
                       "name": "level",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 349,
-                      "src": "370:5:7",
+                      "referencedDeclaration": 353,
+                      "src": "409:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -895,14 +1084,14 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 353,
+                      "id": 357,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "379:1:7",
+                      "src": "418:1:7",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
@@ -910,28 +1099,28 @@
                       },
                       "value": "0"
                     },
-                    "src": "370:10:7",
+                    "src": "409:10:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
                   "falseBody": null,
-                  "id": 356,
+                  "id": 360,
                   "nodeType": "IfStatement",
-                  "src": "366:36:7",
+                  "src": "405:36:7",
                   "trueBody": {
                     "expression": null,
-                    "functionReturnParameters": 351,
-                    "id": 355,
+                    "functionReturnParameters": 355,
+                    "id": 359,
                     "nodeType": "Return",
-                    "src": "395:7:7"
+                    "src": "434:7:7"
                   }
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 358,
+                    "id": 362,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -939,15 +1128,15 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": false,
-                    "src": "426:9:7",
+                    "src": "465:9:7",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 357,
+                      "id": 361,
                       "name": "counter",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 334,
-                      "src": "426:7:7",
+                      "src": "465:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -958,9 +1147,87 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 359,
+                  "id": 363,
                   "nodeType": "ExpressionStatement",
-                  "src": "426:9:7"
+                  "src": "465:9:7"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 368,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 364,
+                        "name": "map",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 340,
+                        "src": "495:3:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+                          "typeString": "mapping(uint256 => bool)"
+                        }
+                      },
+                      "id": 366,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 365,
+                        "name": "counter",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 334,
+                        "src": "499:7:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "495:12:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 367,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "510:4:7",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "495:19:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 369,
+                  "nodeType": "ExpressionStatement",
+                  "src": "495:19:7"
                 },
                 {
                   "expression": {
@@ -972,19 +1239,19 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 365,
+                        "id": 375,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 363,
+                          "id": 373,
                           "name": "level",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 349,
-                          "src": "476:5:7",
+                          "referencedDeclaration": 353,
+                          "src": "555:5:7",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -995,14 +1262,14 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 364,
+                          "id": 374,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "484:1:7",
+                          "src": "563:1:7",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_1_by_1",
@@ -1010,7 +1277,7 @@
                           },
                           "value": "1"
                         },
-                        "src": "476:9:7",
+                        "src": "555:9:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1026,18 +1293,18 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 360,
+                        "id": 370,
                         "name": "recursive",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 336,
-                        "src": "456:9:7",
+                        "src": "535:9:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_RecursiveChild_$318",
                           "typeString": "contract RecursiveChild"
                         }
                       },
-                      "id": 362,
+                      "id": 372,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1045,13 +1312,13 @@
                       "memberName": "increment",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 317,
-                      "src": "456:19:7",
+                      "src": "535:19:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$returns$__$",
                         "typeString": "function (uint256) external"
                       }
                     },
-                    "id": 366,
+                    "id": 376,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1059,36 +1326,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "456:30:7",
+                    "src": "535:30:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 367,
+                  "id": 377,
                   "nodeType": "ExpressionStatement",
-                  "src": "456:30:7"
+                  "src": "535:30:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 369,
+            "id": 379,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "increment",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 350,
+              "id": 354,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 349,
+                  "id": 353,
                   "name": "level",
                   "nodeType": "VariableDeclaration",
-                  "scope": 369,
-                  "src": "336:10:7",
+                  "scope": 379,
+                  "src": "375:10:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1096,10 +1363,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 348,
+                    "id": 352,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "336:4:7",
+                    "src": "375:4:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1109,26 +1376,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "335:12:7"
+              "src": "374:12:7"
             },
             "returnParameters": {
-              "id": 351,
+              "id": 355,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "355:0:7"
+              "src": "394:0:7"
             },
-            "scope": 370,
-            "src": "317:177:7",
+            "scope": 380,
+            "src": "356:217:7",
             "stateMutability": "nonpayable",
             "superFunction": 325,
             "visibility": "public"
           }
         ],
-        "scope": 371,
-        "src": "105:392:7"
+        "scope": 381,
+        "src": "105:471:7"
       }
     ],
-    "src": "0:501:7"
+    "src": "0:580:7"
   },
   "compiler": {
     "name": "solc",
@@ -1136,7 +1403,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-05-20T19:48:19.810Z",
+  "updatedAt": "2020-09-11T21:10:35.139Z",
   "devdoc": {
     "methods": {}
   },

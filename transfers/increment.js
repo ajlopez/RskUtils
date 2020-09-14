@@ -58,7 +58,7 @@ async function allocate(sender) {
     for (let k = 0; k < ntimes; k++) {
         const account = accounts[Math.floor(Math.random() * naccounts)];
         console.log("allocate from", sender.address, "to", account.address);
-        await client.invoke(sender, token, "allocateTo(address,uint256)", [ account.address, amount ], { nonce: nonce++, gas: 60000 });
+        await client.invoke(sender, token, "increment(uint256)", [ account.address, amount ], { nonce: nonce++, gas: 60000 });
     }
 }
 

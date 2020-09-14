@@ -6,6 +6,7 @@ import "./RecursiveChild.sol";
 contract RecursiveParent is RecursiveInterface {
     uint public counter;
     RecursiveChild public recursive;
+    mapping(uint => bool) public map;
     
     constructor() public {
         recursive = new RecursiveChild(this);
@@ -16,6 +17,8 @@ contract RecursiveParent is RecursiveInterface {
             return;
             
         counter++;
+        
+        map[counter] = true;
         
         recursive.increment(level - 1);
     }

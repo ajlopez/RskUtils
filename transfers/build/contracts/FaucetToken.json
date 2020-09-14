@@ -375,7 +375,7 @@
         "id": 206,
         "nodeType": "ImportDirective",
         "scope": 277,
-        "sourceUnit": 712,
+        "sourceUnit": 722,
         "src": "28:29:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -389,10 +389,10 @@
               "id": 207,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 711,
+              "referencedDeclaration": 721,
               "src": "227:13:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$711",
+                "typeIdentifier": "t_contract$_StandardToken_$721",
                 "typeString": "contract StandardToken"
               }
             },
@@ -405,7 +405,7 @@
           95,
           138,
           170,
-          711
+          721
         ],
         "contractKind": "contract",
         "documentation": "@title The Compound Faucet Test Token\n@author Compound\n@notice A simple test token that lets anyone get more of it.",
@@ -413,7 +413,7 @@
         "id": 276,
         "linearizedBaseContracts": [
           276,
-          711,
+          721,
           95,
           138,
           170
@@ -583,7 +583,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 726,
+                          "referencedDeclaration": 736,
                           "src": "508:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1048,7 +1048,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 752,
+                            "referencedDeclaration": 762,
                             "src": "878:4:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_FaucetToken_$276",
@@ -1276,7 +1276,7 @@
         "id": 206,
         "nodeType": "ImportDirective",
         "scope": 277,
-        "sourceUnit": 712,
+        "sourceUnit": 722,
         "src": "28:29:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1290,10 +1290,10 @@
               "id": 207,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 711,
+              "referencedDeclaration": 721,
               "src": "227:13:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$711",
+                "typeIdentifier": "t_contract$_StandardToken_$721",
                 "typeString": "contract StandardToken"
               }
             },
@@ -1306,7 +1306,7 @@
           95,
           138,
           170,
-          711
+          721
         ],
         "contractKind": "contract",
         "documentation": "@title The Compound Faucet Test Token\n@author Compound\n@notice A simple test token that lets anyone get more of it.",
@@ -1314,7 +1314,7 @@
         "id": 276,
         "linearizedBaseContracts": [
           276,
-          711,
+          721,
           95,
           138,
           170
@@ -1484,7 +1484,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 726,
+                          "referencedDeclaration": 736,
                           "src": "508:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1949,7 +1949,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 752,
+                            "referencedDeclaration": 762,
                             "src": "878:4:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_FaucetToken_$276",
@@ -2156,7 +2156,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-05-20T19:48:19.807Z",
+  "updatedAt": "2020-09-11T21:10:35.135Z",
   "devdoc": {
     "author": "Compound",
     "methods": {
