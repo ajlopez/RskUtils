@@ -49,4 +49,6 @@ Sample output
 
 - [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1)
 - [Ethereum: How to generate Private key, public key and address](https://ethereum.stackexchange.com/questions/39384/how-to-generate-private-key-public-key-and-address)
+- [ethereumjs-util CDN](https://www.jsdelivr.com/package/npm/ethereumjs-util)
+- [ethereumjs-util: Docs, Tutorials, Reviews | Openbase](https://openbase.com/js/ethereumjs-util)
 
