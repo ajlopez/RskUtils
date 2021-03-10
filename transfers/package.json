@@ -8,6 +8,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "rskapi": "0.0.14"
+    "rskapi": "0.0.18"
   }
 }
