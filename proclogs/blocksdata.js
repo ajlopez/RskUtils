@@ -40,11 +40,28 @@ const TXS_VALIDATION_TIME = 7;
 const FORK_VALIDATION_TIME = 8;
 const TRIE_TIME = 9;
 const RECEIPTS_TIME = 10;
+const GAS_USED = 11;
 
 for (let k = 0, l = lines.length; k < l; k++) {
     const line = lines[k].trim();
     
     if (!isBlockLine(line))
+        continue;
+    
+    if (line.indexOf("Try connect block hash") >= 0) {
+        inblock = true;
+        state = START_BLOCK;
+        
+        const p = line.indexOf("number: ");
+        
+        const number = parseInt(line.substring(p + "number: ".length));
+        
+        data = [ number, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+        
+        continue;
+    }
+    
+    if (!inblock)
         continue;
     
     if (line.indexOf("Validating header") >= 0)
@@ -78,28 +95,12 @@ for (let k = 0, l = lines.length; k < l; k++) {
         data[TRIE_TIME] = toDate(getTime(line)) - lastlinetime;
         lastline = 0;
     }
-    else if (lastline === TX_DONE)
-        lastline = 0;
+    //else if (lastline === TX_DONE)
+    //    lastline = 0;
     else if (lastline === SAVE_RECEIPTS) {
         data[RECEIPTS_TIME] = toDate(getTime(line)) - lastlinetime;
         lastline = 0;
     }
-    
-    if (line.indexOf("Try connect block hash") >= 0) {
-        inblock = true;
-        state = START_BLOCK;
-        
-        const p = line.indexOf("number: ");
-        
-        const number = parseInt(line.substring(p + "number: ".length));
-        
-        data = [ number, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
-        
-        continue;
-    }
-    
-    if (!inblock)
-        continue;
     
     if (state === START_BLOCK && line.indexOf("[blockvalidator") >= 0) {
         state = VERIFICATION;
@@ -128,26 +129,47 @@ for (let k = 0, l = lines.length; k < l; k++) {
         continue;
     }
     
-    if (line.indexOf("processed after:") >= 0) {
-        const p = line.indexOf("processed after: [");
-        const time = parseInt(line.substring(p + "processed after: [".length));
-               
-        data[PROCESSED_TIME] = Math.floor((time + 500000) / 1000000);
-        data[SAVE_TIME] = toDate(getTime(line)) - timestartclose;
-        
-        blocks.push(data);
-        
-        inblock = false;
-        
-        continue;
-    }
-    
     if (line.indexOf("tx.list: [") >= 0) {
         const p = line.indexOf("tx.list: [");
         
         const ntxs = parseInt(line.substring(p + "tx.list: [".length));
         
         data[NO_TXS] = ntxs;
+        
+        continue;
+    }
+    
+    if (line.indexOf("processed after:") >= 0) {
+        const p = line.indexOf("processed after: [");
+        let time = line.substring(p + "processed after: [".length);
+        const p2 = time.indexOf("]");
+        time = time.substring(0, p2);
+        
+        if (time.indexOf('.') >= 0)
+            time = Math.floor(parseFloat(time) * 1_000_000_000);
+        else
+            time = parseInt(time);
+               
+        data[PROCESSED_TIME] = Math.floor((time + 500000) / 1000000);
+        data[SAVE_TIME] = toDate(getTime(line)) - timestartclose;
+        
+        const pg = line.indexOf("gas used: ");
+        
+        if (pg >= 0) {
+            const gasUsed = parseInt(line.substring(pg + "gas used: ".length));
+            data[GAS_USED] = gasUsed;
+        }
+        
+        const ptx = line.indexOf("no txs: ");
+        
+        if (ptx >= 0) {
+            const noTxs = parseInt(line.substring(ptx + "no txs: ".length));
+            data[NO_TXS] = noTxs;
+        }
+        
+        blocks.push(data);
+        
+        inblock = false;
         
         continue;
     }
